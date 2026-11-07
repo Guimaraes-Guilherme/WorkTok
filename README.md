@@ -31,6 +31,8 @@ As regras importantes (quem publica vaga, quem pode conversar, limite de 3 min, 
 
 ## Como rodar (passo a passo)
 
+> **Já configurado:** o projeto Supabase **WorkTok** (região São Paulo) já está ativo com todo o banco instalado, e o `.env.example` já vem com a URL e a chave dele. Basta copiar `.env.example` para `.env` e pular para o passo 3. Os passos 1 e 2 abaixo servem só se você quiser montar outro projeto do zero.
+
 ### 1. Criar o projeto no Supabase (grátis)
 1. Acesse https://supabase.com, crie uma conta e clique em **New project**.
 2. Quando o projeto abrir, vá em **SQL Editor → New query**.

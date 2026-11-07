@@ -456,3 +456,22 @@ create policy "media atualiza proprio" on storage.objects for update to authenti
   using (bucket_id = 'media' and (storage.foldername(name))[1] = auth.uid()::text);
 create policy "media apaga proprio" on storage.objects for delete to authenticated
   using (bucket_id = 'media' and (storage.foldername(name))[1] = auth.uid()::text);
+
+-- ---------------------------------------------------------------------
+-- ENDURECIMENTO: só quem está logado chama as funções, e as funções
+-- internas (gatilhos) não podem ser chamadas pela API.
+-- ---------------------------------------------------------------------
+alter function public.lock_account_type() set search_path = public;
+
+revoke execute on function public.handle_new_user()                 from public, anon, authenticated;
+revoke execute on function public.touch_conversation()              from public, anon, authenticated;
+revoke execute on function public.lock_account_type()               from public, anon, authenticated;
+revoke execute on function public.follows_each_other(uuid, uuid)    from public, anon, authenticated;
+revoke execute on function public.is_recruiter(uuid)                from public, anon;
+revoke execute on function public.is_participant(uuid, uuid)        from public, anon;
+revoke execute on function public.can_start_chat(uuid, uuid)        from public, anon;
+revoke execute on function public.start_conversation(uuid, uuid)    from public, anon;
+revoke execute on function public.apply_to_job(uuid)                from public, anon;
+revoke execute on function public.profile_stats(uuid)               from public, anon;
+grant  execute on function public.is_recruiter(uuid)                to authenticated;
+grant  execute on function public.is_participant(uuid, uuid)        to authenticated;
