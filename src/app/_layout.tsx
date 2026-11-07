@@ -7,6 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import '../lib/web-alert';
 import { AuthProvider, useAuth } from '../lib/auth';
 import { supabaseConfigured } from '../lib/supabase';
 import { colors } from '../lib/theme';

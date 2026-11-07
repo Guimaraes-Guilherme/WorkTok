@@ -59,7 +59,9 @@ npm install
 npx expo start
 ```
 
-Instale o app **Expo Go** no celular e escaneie o QR code que aparece no terminal.
+Instale o app **Expo Go** no celular e escaneie o QR code que aparece no terminal (no iPhone é preciso entrar com a mesma conta Expo no computador, com `npx expo login`, e no app).
+
+**Sem celular / sem Expo Go:** rode `npx expo start --web` (ou aperte `w` com o servidor rodando) e o WorkTok abre no navegador. Dica: no Chrome, aperte F12 e ative o modo celular (Ctrl+Shift+M) para ver o app no formato de tela de telefone.
 
 > Para testar o chat e as regras, crie duas ou três contas (uma delas como **Recrutador/RH**).
 
