@@ -1,25 +1,60 @@
 {
   "expo": {
-    "name": "worktok",
+    "name": "WorkTok",
     "slug": "worktok",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.worktok.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Para gravar vídeos e fotos do seu trabalho.",
+        "NSMicrophoneUsageDescription": "Para gravar o áudio dos seus vídeos.",
+        "NSPhotoLibraryUsageDescription": "Para escolher fotos e vídeos para publicar."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#0B0B0F",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.worktok.app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-video",
+      "expo-image",
+      "expo-font",
+      "expo-web-browser",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#0B0B0F",
+          "image": "./assets/icon.png",
+          "imageWidth": 120
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Para escolher fotos e vídeos para publicar.",
+          "cameraPermission": "Para gravar vídeos e fotos do seu trabalho.",
+          "microphonePermission": "Para gravar o áudio dos seus vídeos."
+        }
+      ]
+    ],
+    "scheme": "worktok",
+    "backgroundColor": "#0B0B0F",
+    "experiments": {
+      "typedRoutes": true
     }
   }
 }
